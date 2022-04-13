@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public PlayerDirection PlayerDirection;
     public PlayerState PlayerState;
     public JumpState JumpState;
+
+    public Animator Animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +30,12 @@ public class PlayerController : MonoBehaviour
             PlayerDirection = Input.GetKey(KeyCode.RightArrow) ? PlayerDirection.isRight : PlayerDirection.isLeft;
             ChangeDirection();
             transform.position += Vector3.right * (int)PlayerDirection * speed * Time.deltaTime;
+            Animator.SetBool("IsMove", true);
         }
         else
         {
             PlayerState = PlayerState.Idle;
+            Animator.SetBool("IsMove", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && JumpState == JumpState.Landing)
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("ground"))
         {
             JumpState = JumpState.Landing;
+            Animator.SetBool("IsOnGround", true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,6 +57,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("ground"))
         {
             JumpState = JumpState.OnTheAir;
+            Animator.SetBool("IsOnGround", false);
         }
     }
     void ChangeDirection()

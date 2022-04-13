@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 959149795}
   - component: {fileID: 959149796}
   - component: {fileID: 959149797}
+  - component: {fileID: 959149798}
   m_Layer: 0
   m_Name: Idle (32x32)_0
   m_TagString: Untagged
@@ -723,7 +724,10 @@ MonoBehaviour:
   speed: 5
   Rigid: {fileID: 959149793}
   jumpForce: 200
-  isJumping: 0
+  PlayerDirection: 1
+  PlayerState: 0
+  JumpState: 0
+  Animator: {fileID: 959149798}
 --- !u!61 &959149797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -750,6 +754,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33255422, y: 0.036721036}
   m_EdgeRadius: 0
+--- !u!95 &959149798
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959149791}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c88b09c919358a44b9ded8132f497d82, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1782433672
 GameObject:
   m_ObjectHideFlags: 0
